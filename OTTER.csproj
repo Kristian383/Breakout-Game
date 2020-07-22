@@ -56,7 +56,9 @@
     <Compile Include="BGL.Designer.cs">
       <DependentUpon>BGL.cs</DependentUpon>
     </Compile>
+    <Compile Include="BinarySearch.cs" />
     <Compile Include="Brick.cs" />
+    <Compile Include="ExponentialSearch.cs" />
     <Compile Include="GameClass.cs" />
     <Compile Include="GameOptions.cs" />
     <Compile Include="End.cs">
@@ -65,7 +67,9 @@
     <Compile Include="End.Designer.cs">
       <DependentUpon>End.cs</DependentUpon>
     </Compile>
+    <Compile Include="LinearSearch.cs" />
     <Compile Include="Paddle.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -89,6 +93,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="backgrounds\bckg2.png" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="Resources\default.jpg" />
     <None Include="sprites\pointer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

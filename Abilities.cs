@@ -13,7 +13,7 @@ namespace OTTER
             Active = false;
             this.brzina = 2;
         }
-        public bool Active { get; set; }
+        public  bool Active { get; set; }
 
         private int bodoviVrijednost;
         public int BodoviVrijednost
@@ -60,6 +60,7 @@ namespace OTTER
             this.lives = 1;
         }
 
+        
         private int lives;
 
         public int Lives

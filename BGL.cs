@@ -626,9 +626,11 @@ namespace OTTER
             }
 
             START = false;
+            zatvori_bgl();
+
 
             //this.Close();
-            zatvori_bgl();
+
             //End frmKraj = new End();
             //frmKraj.Show();
         }        
@@ -654,10 +656,12 @@ namespace OTTER
         }
 
         /* Initialization */
-        Ball ball;
-        Paddle trampolin;
         List<Brick> bricksList;
+
+        Ball ball;
+        Paddle trampolin;        
         Heart heart;
+
         bool pausePaddle = false;
 
         private void SetupGame()

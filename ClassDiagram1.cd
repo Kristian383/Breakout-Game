@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="OTTER.Abilities">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAACAAAAAgAAAAAAEAAAAAgAAAgAAAAIAA=</HashCode>
+      <FileName>Abilities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OTTER.Heart">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Abilities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OTTER.Ball">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="OTTER.Ball.EventHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Ball.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AEgEAAAAAAAAAIgAAAAIAAAAAAAAAgCAAAAAAAAIZAA=</HashCode>
+      <FileName>Ball.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OTTER.BGL">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="OTTER.BGL.HeartEvent" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>BGL.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="OTTER.BGL.forma_delegat" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>BGL.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>KIRHhAhCQChBCigAIJjKQkQyAARtIWUDgiyioQgYJIA=</HashCode>
+      <FileName>BGL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OTTER.Brick">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAIAASAKAAAgCAAAAAA=</HashCode>
+      <FileName>Brick.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OTTER.End">
+    <Position X="14.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAACAAABACAAAICAAAAAAAAAAEAAABAQAA=</HashCode>
+      <FileName>End.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OTTER.SpriteList&lt;T&gt;" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAEAAAABAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OTTER.Game" Collapsed="true">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAggAAAAAAAAAAAQAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>GameClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OTTER.GameOptions">
+    <Position X="16.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAABAAAQBAABAAAAQAABAQIAgEAAAQAAAAAA=</HashCode>
+      <FileName>GameOptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OTTER.Paddle">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="OTTER.Paddle.EventHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Paddle.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAIAAACAAIAggAAAAAAIAAABCAIAAQACAAQAAAACBAA=</HashCode>
+      <FileName>Paddle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OTTER.Program" Collapsed="true">
+    <Position X="16.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OTTER.Sensing" Collapsed="true">
+    <Position X="13.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAQAgEAAAAAAAAEAAAAgAAAAJAAAA=</HashCode>
+      <FileName>Sensing.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OTTER.SpriteCostume" Collapsed="true">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQABAAAAAAAAQAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Sprite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OTTER.Sprite" Collapsed="true">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAFEEDgAEg4yIZCeCAJYEBAACwFAiAAAADggkIiZGg=</HashCode>
+      <FileName>Sprite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OTTER.Start" Collapsed="true">
+    <Position X="16.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAChAAEDAAAAAARAGAQAAiACAgACEAAAAAEARAAAI=</HashCode>
+      <FileName>Start.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OTTER.Properties.Resources" Collapsed="true">
+    <Position X="11.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAABGAAAAQEAAAgAkAAAUCABIIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OTTER.Properties.Settings" Collapsed="true">
+    <Position X="15" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
