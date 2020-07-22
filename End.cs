@@ -26,13 +26,13 @@ namespace OTTER
         BinarySearch bs = new BinarySearch();
         ExponentialSearch es = new ExponentialSearch();
         LinearSearch ls = new LinearSearch();
-        int trazeniBroj;
-        int brojPonavljanja;
+        int inputNumberPoints;
+        int numberOfRepeating;
         Stopwatch stopWatchBinary;
         Stopwatch stopWatchLinear;
         Stopwatch stopWatchExponential;
         Player[] players;
-        string odabirSearcha = "iterative";
+        string chooseSearch = "iterative";
 
         private void Kraj_Load(object sender, EventArgs e)
         {
@@ -55,12 +55,12 @@ namespace OTTER
                     linija = sr.ReadLine();
                 }
 
-                List<Player> sortirani = igraci.OrderBy(o => o.Bodovi).ToList();
-                players = sortirani.ToArray();
+                List<Player> sortedPlayers = igraci.OrderBy(o => o.Points).ToList();
+                players = sortedPlayers.ToArray();
 
                 foreach (var item in players)
                 {
-                    lstResults.Items.Add(item.Ime + " " + item.Bodovi + "\n");
+                    lstResults.Items.Add(item.Name + " " + item.Points + "\n");
                 }
 
             }
@@ -77,20 +77,20 @@ namespace OTTER
         {
             try
             {
-                trazeniBroj = int.Parse(textBox1.Text);
-                brojPonavljanja = int.Parse(txtBrojPonavljanja.Text);
-                if (brojPonavljanja <= 0 || trazeniBroj < 0) return;
+                inputNumberPoints = int.Parse(textBox1.Text);
+                numberOfRepeating = int.Parse(txtBrojPonavljanja.Text);
+                if (numberOfRepeating <= 0 || inputNumberPoints < 0) return;
             }
             catch
             {
                 return;
             }
-            richTextBox1.Text = "Ispis pozicije igrača sa " + trazeniBroj + " pointsa:\n";
-            if (rbtBinaryRecursion.Checked) odabirSearcha = "binaryRecursion";
-            else if (rbtFirstO.Checked) odabirSearcha = "firstO";
-            else if (rbtLastO.Checked) odabirSearcha = "lastO";
-            else if (rbtCount.Checked) odabirSearcha = "countBs";
-            else if (rbtIterative.Checked) odabirSearcha = "iterative";
+            richTextBox1.Text = "Positions of players with " + inputNumberPoints + " points:\n";
+            if (rbtBinaryRecursion.Checked) chooseSearch = "binaryRecursion";
+            else if (rbtFirstO.Checked) chooseSearch = "firstO";
+            else if (rbtLastO.Checked) chooseSearch = "lastO";
+            else if (rbtCount.Checked) chooseSearch = "countBs";
+            else if (rbtIterative.Checked) chooseSearch = "iterative";
 
             IspisIndexa(players);
         }
@@ -98,11 +98,11 @@ namespace OTTER
         private void IspisIndexa(Player[] ply)
         {
             //richTextBox2.Text += "Ispis sortiranih elemenata:\n";
-            int[] rezultati = new int[ply.Length];
+            int[] results = new int[ply.Length];
             int poz = 0;
             foreach (var item in ply)
             {
-                rezultati[poz++] = item.Bodovi;
+                results[poz++] = item.Points;
 
             }
 
@@ -114,56 +114,56 @@ namespace OTTER
             stopWatchLinear = new Stopwatch();
             stopWatchExponential = new Stopwatch();
 
-            double srednjaVrijednostLin = 0;
-            double srednjaVrijednostExp = 0;
-            double srednjaVrijednostBin = 0;
+            double avgTimeLinear = 0;
+            double avgTimeExp = 0;
+            double avgTimeBin = 0;
 
             //mjerenja***************************************************
 
-            for (int o = 0; o < brojPonavljanja; o++)
+            for (int o = 0; o < numberOfRepeating; o++)
             {
 
                 //stopWatchLinear.Start();
                 stopWatchLinear = Stopwatch.StartNew();
-                indLinear = ls.Linear(rezultati, trazeniBroj);
+                indLinear = ls.Linear(results, inputNumberPoints);
                 stopWatchLinear.Stop();
 
 
                 //stopWatchExponential.Start();
                 stopWatchExponential = Stopwatch.StartNew();
-                indExponential = es.Exponential(rezultati, rezultati.Length - 1, trazeniBroj);
+                indExponential = es.Exponential(results, results.Length - 1, inputNumberPoints);
                 stopWatchExponential.Stop();
 
-                switch (odabirSearcha)
+                switch (chooseSearch)
                 {
                     case "firstO":
                         stopWatchBinary = Stopwatch.StartNew();
                         //stopWatchBinary.Start();
-                        indBinary = bs.FirstOccurrence(rezultati, 0, rezultati.Length - 1, trazeniBroj);
+                        indBinary = bs.FirstOccurrence(results, 0, results.Length - 1, inputNumberPoints);
                         stopWatchBinary.Stop();
                         break;
                     case "lastO":
                         //stopWatchBinary.Start();
                         stopWatchBinary = Stopwatch.StartNew();
-                        indBinary = bs.LastOccurrence(rezultati, 0, rezultati.Length - 1, trazeniBroj);
+                        indBinary = bs.LastOccurrence(results, 0, results.Length - 1, inputNumberPoints);
                         stopWatchBinary.Stop();
                         break;
                     case "countBs":
                         //stopWatchBinary.Start();
                         stopWatchBinary = Stopwatch.StartNew();
-                        indBinary = bs.Count(rezultati, trazeniBroj, rezultati.Length);
+                        indBinary = bs.Count(results, inputNumberPoints, results.Length);
                         stopWatchBinary.Stop();
                         break;
                     case "binaryRecursion":
                         //stopWatchBinary.Start();
                         stopWatchBinary = Stopwatch.StartNew();
-                        indBinary = bs.BinaryRecursion(rezultati, 0, rezultati.Length - 1, trazeniBroj);
+                        indBinary = bs.BinaryRecursion(results, 0, results.Length - 1, inputNumberPoints);
                         stopWatchBinary.Stop();
                         break;
                     case "iterative":
                         //stopWatchBinary.Start();
                         stopWatchBinary = Stopwatch.StartNew();
-                        indBinary = bs.BinaryIterative(rezultati, 0, rezultati.Length - 1, trazeniBroj);
+                        indBinary = bs.BinaryIterative(results, 0, results.Length - 1, inputNumberPoints);
                         stopWatchBinary.Stop();
                         break;
                 }
@@ -176,56 +176,56 @@ namespace OTTER
                 double milibin = tsBin.TotalMilliseconds;
                 double mililin = tsLin.TotalMilliseconds;
 
-                srednjaVrijednostLin += tsLin.TotalMilliseconds;
+                avgTimeLinear += tsLin.TotalMilliseconds;
 
-                srednjaVrijednostBin += tsBin.TotalMilliseconds;
-                srednjaVrijednostExp += tsExp.TotalMilliseconds;
+                avgTimeBin += tsBin.TotalMilliseconds;
+                avgTimeExp += tsExp.TotalMilliseconds;
             }
             //**********************************************************
             string igracB, igracL, igracE;
             igracB = igracL = igracE = "";
 
-            if (odabirSearcha == "countBs")
+            if (chooseSearch == "countBs")
             {
-                int pocetniInd = bs.FirstOccurrence(rezultati, 0, rezultati.Length - 1, trazeniBroj);
-                int zadnjiInd = bs.LastOccurrence(rezultati, 0, rezultati.Length - 1, trazeniBroj);
+                int startInd = bs.FirstOccurrence(results, 0, results.Length - 1, inputNumberPoints);
+                int lastInd = bs.LastOccurrence(results, 0, results.Length - 1, inputNumberPoints);
                 string igraciIstihBodova = "";
 
-                richTextBox1.Text += "Binary count: " + indBinary + "\n" + "Igraci: ";
+                richTextBox1.Text += "Binary count: " + indBinary + "\n" + "Players: ";
 
-                if (pocetniInd != -1 && zadnjiInd != -1)
+                if (startInd != -1 && lastInd != -1)
                 {
-                    for (int u = pocetniInd; u <= zadnjiInd; u++)
+                    for (int u = startInd; u <= lastInd; u++)
                     {
-                        igracB = ply[u].Ime;
+                        igracB = ply[u].Name;
                         igraciIstihBodova += igracB + ", ";
                     }
                     richTextBox1.Text += igraciIstihBodova;
                 }
-                else richTextBox1.Text += "nema";
+                else richTextBox1.Text += "not found";
 
                 richTextBox1.Text += "\n\n";
             }
             else
             {
-                igracB = indBinary == -1 ? "nema" : ply[indBinary].Ime;
-                richTextBox1.Text += "Binary index: " + indBinary + $"   Igrač: {igracB}\n\n";
+                igracB = indBinary == -1 ? "not found" : ply[indBinary].Name;
+                richTextBox1.Text += "Binary index: " + indBinary + $"   Player: {igracB}\n\n";
             }
 
-            igracE = indExponential == -1 ? "nema" : ply[indExponential].Ime;
-            igracL = indLinear == -1 ? "nema" : ply[indLinear].Ime;
+            igracE = indExponential == -1 ? "not found" : ply[indExponential].Name;
+            igracL = indLinear == -1 ? "not found" : ply[indLinear].Name;
 
-            richTextBox1.Text += "Linear index: " + indLinear + $"   Igrač: {igracL}\n\n";
-            richTextBox1.Text += "Exponential index: " + indExponential + $"   Igrač: {igracE}\n\n";
+            richTextBox1.Text += "Linear index: " + indLinear + $"   Player: {igracL}\n\n";
+            richTextBox1.Text += "Exponential index: " + indExponential + $"   Player: {igracE}\n\n";
 
 
-            double vr1 = (srednjaVrijednostBin / brojPonavljanja);
-            double vr2 = (srednjaVrijednostLin / brojPonavljanja);
-            double vr3 = (srednjaVrijednostExp / brojPonavljanja);
+            double vr1 = (avgTimeBin / numberOfRepeating);
+            double vr2 = (avgTimeLinear / numberOfRepeating);
+            double vr3 = (avgTimeExp / numberOfRepeating);
 
-            richTextBox1.AppendText("Vrijeme Binary: " + String.Format("{0:0.00000000}", vr1) + "\n\n");
-            richTextBox1.AppendText("Vrijeme Linear: " + String.Format("{0:0.00000000}", vr2) + "\n\n");
-            richTextBox1.AppendText("Vrijeme Exponential: " + String.Format("{0:0.00000000}", vr3) + "\n\n");
+            richTextBox1.AppendText("Time Binary: " + String.Format("{0:0.00000000}", vr1) + "\n\n");
+            richTextBox1.AppendText("Time Linear: " + String.Format("{0:0.00000000}", vr2) + "\n\n");
+            richTextBox1.AppendText("Time Exponential: " + String.Format("{0:0.00000000}", vr3) + "\n\n");
 
             //?********************************************************
 
